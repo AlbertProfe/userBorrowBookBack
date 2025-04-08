@@ -18,7 +18,15 @@ A Spring Boot project with H2 local database and JPA for a <mark>borrowing syste
 
 > The `Borrow` entity would have relationships with `Book` and `User` entities. Controllers would expose endpoints for creating, reading, updating, and deleting borrow records. 
 
-> The H2 database provides an in-memory database for development and testing purposes, while JPA simplifies database operations and object-relational mapping.
+> The **H2 database provides an in-memory database** for development and testing purposes, while JPA simplifies database operations and object-relational mapping.
+
+- Pagination:  [GitHub - AlbertProfe/userBorrowBookPagination](https://github.com/AlbertProfe/userBorrowBookPagination)
+
+- Pageable TH html: [GitHub - AlbertProfe/BooksPageable](https://github.com/AlbertProfe/BooksPageable)
+
+- Filter: [GitHub - AlbertProfe/userBorrowBookFilter](https://github.com/AlbertProfe/userBorrowBookFilter)
+
+- Mappings, DB and JPA relationships: [GitHub - AlbertProfe/userBorrowBook](https://github.com/AlbertProfe/userBorrowBook)
 
 ## Model
 
@@ -246,4 +254,149 @@ Borrow:
     }
   }
 ]
+```
+
+## Projections
+
+- [Projections :: Spring Data JPA](https://docs.spring.io/spring-data/jpa/reference/repositories/projections.html)
+
+> Spring Data query methods usually return one or multiple instances  by the repository. 
+> 
+> However, it might sometimes be desirable to create **projections** based on <mark>certain attributes of those types</mark>. 
+> 
+> Spring Data allows modeling dedicated return types, to more selectively retrieve partial views.
+
+Here’s a comparison of **JPA Projections** (Interface/Class-based) and **Classic DTO Pattern** in Spring Data JPA:
+
+| Feature                      | JPA Projections (Interface/Class-based)                                            | Classic DTO Pattern                                       |
+| ---------------------------- | ---------------------------------------------------------------------------------- | --------------------------------------------------------- |
+| **Code Complexity**          | Less boilerplate (interfaces only). Supports nested projections.                   | More verbose (requires DTO class + constructor/getters).  |
+| **Performance**              | Proxy overhead for interface-based. Class-based avoids proxies but limits nesting. | No proxy overhead; faster for read-heavy operations.      |
+| **Flexibility**              | Dynamic projections (runtime type selection). Native query support.                | Manual mapping; better for complex joins/calculations.    |
+| **Immutability**             | Interface methods enforce read-only access.                                        | Requires manual implementation (e.g., `final` fields).    |
+| **Nested Data**              | Supports nested projections via interfaces.                                        | Requires explicit DTO nesting.                            |
+| **Query Type Compatibility** | Works with JPQL, derived queries, and native queries.                              | Requires constructor expressions (`NEW` keyword) in JPQL. |
+| **Use Case**                 | Optimized for selective field fetching with minimal code.                          | Best for complex transformations/aggregations.            |
+
+**Key Trade-offs**:  
+
+- **JPA Projections** excel in simplicity and dynamic use but may incur proxy costs. 
+- **Classic DTOs** offer fine-grained control and better performance for large datasets.  
+
+For native SQL or advanced joins, DTOs with `@ConstructorResult` are preferred. Interface projections suit rapid development with derived queries.
+
+### Library and LibraryBasicInfo
+
+1. **An Entity (`Library`)** – Represents the full database table structure.
+2. **An Interface Projection (`LibraryBasicInfo`)** – Defines a subset of fields to fetch.
+
+How Interface Projections Work:
+
+- `LibraryBasicInfo` is a **Spring Data JPA projection** that selects only `id`, `name`, `city`, and `email` from the `Library` entity.
+- Spring automatically generates a proxy class implementing this interface, fetching only those fields (optimizes SQL queries).
+
+Usage in <mark>Repository</mark>:
+
+```java
+public interface LibraryRepository extends JpaRepository<Library, String> {
+
+    // Returns only projected fields  
+    List<LibraryBasicInfo> findByNameContaining(String name); 
+}
+```
+
+Generated SQL:
+
+```sql
+SELECT l.id, l.name, l.city, l.email 
+FROM library l 
+WHERE l.name 
+LIKE '%query%';
+```
+
+### Code
+
+`Library`
+
+```java
+package com.example.userBorrowBook.model;
+
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.hibernate.annotations.GenericGenerator;
+import org.springframework.data.annotation.CreatedBy;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedBy;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+import java.time.LocalDateTime;
+import java.util.UUID;
+
+@Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@EntityListeners(AuditingEntityListener.class)
+@Table(name = "library")
+public class Library {
+
+    @Id
+    @GeneratedValue(generator = "UUID")
+    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
+    private String id;
+
+    private String name;
+    private String address;
+    private String city;
+    private String postalCode;
+    private String country;
+    private String phone;
+    private String email;
+    private int capacity;
+
+    // Audit fields
+    @CreatedDate
+    private LocalDateTime createdDate;
+
+    @LastModifiedDate
+    private LocalDateTime lastModifiedDate;
+
+    @CreatedBy
+    private String createdBy;
+
+    @LastModifiedBy
+    private String lastModifiedBy;
+}
+```
+
+`LibraryBasicInfo`:
+
+```java
+package com.example.userBorrowBook.model;
+
+public interface LibraryBasicInfo {
+    String getId();
+    String getName();
+    String getCity();
+    String getEmail();
+}
+```
+
+`UserBorrowBookBackApplication`:
+
+```java
+@SpringBootApplication
+@EnableJpaRepositories("com.example.userBorrowBook.repository")
+@EntityScan("com.example.userBorrowBook.model")
+@EnableJpaAuditing
+public class UserBorrowBookBackApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(UserBorrowBookBackApplication.class, args);
+    }
+
+}
 ```
