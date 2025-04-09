@@ -2,6 +2,10 @@
 
 ## Links & Intro
 
+> The `Borrow` entity would have relationships with `Book` and `User` entities. Controllers would expose endpoints for creating, reading, updating, and deleting borrow records. 
+
+> The **H2 database provides an in-memory database** for development and testing purposes, while JPA simplifies database operations and object-relational mapping.
+
 ### Basic Project
 
 A Spring Boot project with H2 local database and JPA for a <mark>borrowing system</mark> typically includes:
@@ -13,17 +17,20 @@ A Spring Boot project with H2 local database and JPA for a <mark>borrowing syste
 5. <mark>application.properties</mark> file configuring H2 database and JPA
 6. `pom.xml `with dependencies for Spring Boot, Spring Data JPA, and H2
 
-> The `Borrow` entity would have relationships with `Book` and `User` entities. Controllers would expose endpoints for creating, reading, updating, and deleting borrow records. 
-
-> The **H2 database provides an in-memory database** for development and testing purposes, while JPA simplifies database operations and object-relational mapping.
-
 ### New features
 
-- Pagination: [GitHub - AlbertProfe/userBorrowBookPagination](https://github.com/AlbertProfe/userBorrowBookPagination)
-- Pageable TH html: [GitHub - AlbertProfe/BooksPageable](https://github.com/AlbertProfe/BooksPageable)
-- Filter: [GitHub - AlbertProfe/userBorrowBookFilter](https://github.com/AlbertProfe/userBorrowBookFilter)
-- Mappings, DB and JPA relationships: [GitHub - AlbertProfe/userBorrowBook](https://github.com/AlbertProfe/userBorrowBook)
-- Spring Boot JPA Projections: [Projections](https://docs.spring.io/spring-data/jpa/reference/repositories/projections.html)
+This set of features enhances a library application with pagination, filtering, JPA mappings, and Spring Boot JPA Projections:
+
+- **Pagination** is implemented in `userBorrowBookPagination` and `BooksPageable`. 
+  - Pagination lab: [GitHub - AlbertProfe/userBorrowBookPagination](https://github.com/AlbertProfe/userBorrowBookPagination)
+  - Pageable TH html: [GitHub - AlbertProfe/BooksPageable](https://github.com/AlbertProfe/BooksPageable)
+- **Filtering** is available in `userBorrowBookFilter`. 
+  - Filter: [GitHub - AlbertProfe/userBorrowBookFilter](https://github.com/AlbertProfe/userBorrowBookFilter)
+- JPA examples, including mappings and **relationships**, are demonstrated in `userBorrowBook`. Spring Boot JPA Projections use a `Library` entity and `LibraryBasicInfo` projection for data handling.
+  - Mappings, DB and JPA relationships: [GitHub - AlbertProfe/userBorrowBook](https://github.com/AlbertProfe/userBorrowBook) 
+
+- Spring Boot JPA **Projections**: [Projections](https://docs.spring.io/spring-data/jpa/reference/repositories/projections.html)
+  
   - `Library` entity and `LibraryBasicInfo` <mark>projection</mark>
 
 ## Model

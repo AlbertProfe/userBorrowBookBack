@@ -1,0 +1,4 @@
+userBorrowBookBack-3.4.2    no pagination, filter, absolute path
+userBorrowBookBack-3.4.3    no pagination, filter, absolute path
+userBorrowBookBack-3.4.4    pagination, filter, projections, local relative within project
+userBorrowBookBack-3.4.5    pagination, filter, projections, on memory
