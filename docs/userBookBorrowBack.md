@@ -2,31 +2,29 @@
 
 ## Links & Intro
 
+### Basic Project
+
 A Spring Boot project with H2 local database and JPA for a <mark>borrowing system</mark> typically includes:
 
 1. Entity classes (`Book`, `User`, <mark>Borrow</mark>) annotated with `@Entity`
-
 2. **Repository** interfaces extending `JpaRepository` for CRUD operations
-
 3. Service layer for business logic
-
 4. REST controllers annotated with <mark>@RestController for API endpoints</mark>
-
 5. <mark>application.properties</mark> file configuring H2 database and JPA
-
 6. `pom.xml `with dependencies for Spring Boot, Spring Data JPA, and H2
 
 > The `Borrow` entity would have relationships with `Book` and `User` entities. Controllers would expose endpoints for creating, reading, updating, and deleting borrow records. 
 
 > The **H2 database provides an in-memory database** for development and testing purposes, while JPA simplifies database operations and object-relational mapping.
 
-- Pagination:  [GitHub - AlbertProfe/userBorrowBookPagination](https://github.com/AlbertProfe/userBorrowBookPagination)
+### New features
 
+- Pagination: [GitHub - AlbertProfe/userBorrowBookPagination](https://github.com/AlbertProfe/userBorrowBookPagination)
 - Pageable TH html: [GitHub - AlbertProfe/BooksPageable](https://github.com/AlbertProfe/BooksPageable)
-
 - Filter: [GitHub - AlbertProfe/userBorrowBookFilter](https://github.com/AlbertProfe/userBorrowBookFilter)
-
 - Mappings, DB and JPA relationships: [GitHub - AlbertProfe/userBorrowBook](https://github.com/AlbertProfe/userBorrowBook)
+- Spring Boot JPA Projections: [Projections](https://docs.spring.io/spring-data/jpa/reference/repositories/projections.html)
+  - `Library` entity and `LibraryBasicInfo` <mark>projection</mark>
 
 ## Model
 
@@ -285,7 +283,7 @@ Here’s a comparison of **JPA Projections** (Interface/Class-based) and **Class
 
 For native SQL or advanced joins, DTOs with `@ConstructorResult` are preferred. Interface projections suit rapid development with derived queries.
 
-### Library and LibraryBasicInfo
+## Library and LibraryBasicInfo
 
 1. **An Entity (`Library`)** – Represents the full database table structure.
 2. **An Interface Projection (`LibraryBasicInfo`)** – Defines a subset of fields to fetch.

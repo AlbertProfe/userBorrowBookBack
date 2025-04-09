@@ -1,1 +1,165 @@
-[{"email":"central@lib.com","city":"Barcelona","name":"Central Library","id":"L001"},{"email":"north@lib.com","city":"Santa Coloma de Gramenet","name":"North District Library","id":"L002"},{"email":"south@lib.com","city":"Barcelona","name":"South Public Library","id":"L003"},{"email":"east@lib.com","city":"Badalona","name":"East Reading Center","id":"L004"},{"email":"west@lib.com","city":"Barcelona","name":"West Community Library","id":"L005"},{"email":"university@lib.com","city":"Barcelona","name":"University Library","id":"L006"},{"email":"children@lib.com","city":"Santa Coloma de Gramenet","name":"Children Library","id":"L007"},{"email":"archive@lib.com","city":"Barcelona","name":"Historical Archive","id":"L008"},{"email":"art@lib.com","city":"Barcelona","name":"Art Library","id":"L009"},{"email":"science@lib.com","city":"Badalona","name":"Science Library","id":"L010"},{"email":"music@lib.com","city":"Barcelona","name":"Music Library","id":"L011"},{"email":"law@lib.com","city":"Barcelona","name":"Law Library","id":"L012"},{"email":"medical@lib.com","city":"Santa Coloma de Gramenet","name":"Medical Library","id":"L013"},{"email":"tech@lib.com","city":"Barcelona","name":"Technology Library","id":"L014"},{"email":"business@lib.com","city":"Barcelona","name":"Business Library","id":"L015"},{"email":"language@lib.com","city":"Badalona","name":"Language Center","id":"L016"},{"email":"neighborhood@lib.com","city":"Barcelona","name":"Neighborhood Library","id":"L017"},{"email":"rarebooks@lib.com","city":"Barcelona","name":"Rare Books Library","id":"L018"},{"email":"multicultural@lib.com","city":"Santa Coloma de Gramenet","name":"Multicultural Library","id":"L019"},{"email":"digital@lib.com","city":"Barcelona","name":"Digital Library","id":"L020"},{"email":"learning@lib.com","city":"Barcelona","name":"Community Learning Center","id":"L021"},{"email":"youth@lib.com","city":"Badalona","name":"Youth Library","id":"L022"},{"email":"senior@lib.com","city":"Barcelona","name":"Senior Library","id":"L023"},{"email":"regional@lib.com","city":"Santa Coloma de Gramenet","name":"Regional Library","id":"L024"},{"email":"mainpublic@lib.com","city":"Barcelona","name":"Main Public Library","id":"L025"},{"email":"suburban@lib.com","city":"Badalona","name":"Suburban Library","id":"L026"},{"email":"metro@lib.com","city":"Barcelona","name":"Metropolitan Library","id":"L027"}]
+[
+  {
+    "email": "central@lib.com",
+    "city": "Barcelona",
+    "name": "Central Library",
+    "id": "L001"
+  },
+  {
+    "email": "north@lib.com",
+    "city": "Santa Coloma de Gramenet",
+    "name": "North District Library",
+    "id": "L002"
+  },
+  {
+    "email": "south@lib.com",
+    "city": "Barcelona",
+    "name": "South Public Library",
+    "id": "L003"
+  },
+  {
+    "email": "east@lib.com",
+    "city": "Badalona",
+    "name": "East Reading Center",
+    "id": "L004"
+  },
+  {
+    "email": "west@lib.com",
+    "city": "Barcelona",
+    "name": "West Community Library",
+    "id": "L005"
+  },
+  {
+    "email": "university@lib.com",
+    "city": "Barcelona",
+    "name": "University Library",
+    "id": "L006"
+  },
+  {
+    "email": "children@lib.com",
+    "city": "Santa Coloma de Gramenet",
+    "name": "Children Library",
+    "id": "L007"
+  },
+  {
+    "email": "archive@lib.com",
+    "city": "Barcelona",
+    "name": "Historical Archive",
+    "id": "L008"
+  },
+  {
+    "email": "art@lib.com",
+    "city": "Barcelona",
+    "name": "Art Library",
+    "id": "L009"
+  },
+  {
+    "email": "science@lib.com",
+    "city": "Badalona",
+    "name": "Science Library",
+    "id": "L010"
+  },
+  {
+    "email": "music@lib.com",
+    "city": "Barcelona",
+    "name": "Music Library",
+    "id": "L011"
+  },
+  {
+    "email": "law@lib.com",
+    "city": "Barcelona",
+    "name": "Law Library",
+    "id": "L012"
+  },
+  {
+    "email": "medical@lib.com",
+    "city": "Santa Coloma de Gramenet",
+    "name": "Medical Library",
+    "id": "L013"
+  },
+  {
+    "email": "tech@lib.com",
+    "city": "Barcelona",
+    "name": "Technology Library",
+    "id": "L014"
+  },
+  {
+    "email": "business@lib.com",
+    "city": "Barcelona",
+    "name": "Business Library",
+    "id": "L015"
+  },
+  {
+    "email": "language@lib.com",
+    "city": "Badalona",
+    "name": "Language Center",
+    "id": "L016"
+  },
+  {
+    "email": "neighborhood@lib.com",
+    "city": "Barcelona",
+    "name": "Neighborhood Library",
+    "id": "L017"
+  },
+  {
+    "email": "rarebooks@lib.com",
+    "city": "Barcelona",
+    "name": "Rare Books Library",
+    "id": "L018"
+  },
+  {
+    "email": "multicultural@lib.com",
+    "city": "Santa Coloma de Gramenet",
+    "name": "Multicultural Library",
+    "id": "L019"
+  },
+  {
+    "email": "digital@lib.com",
+    "city": "Barcelona",
+    "name": "Digital Library",
+    "id": "L020"
+  },
+  {
+    "email": "learning@lib.com",
+    "city": "Barcelona",
+    "name": "Community Learning Center",
+    "id": "L021"
+  },
+  {
+    "email": "youth@lib.com",
+    "city": "Badalona",
+    "name": "Youth Library",
+    "id": "L022"
+  },
+  {
+    "email": "senior@lib.com",
+    "city": "Barcelona",
+    "name": "Senior Library",
+    "id": "L023"
+  },
+  {
+    "email": "regional@lib.com",
+    "city": "Santa Coloma de Gramenet",
+    "name": "Regional Library",
+    "id": "L024"
+  },
+  {
+    "email": "mainpublic@lib.com",
+    "city": "Barcelona",
+    "name": "Main Public Library",
+    "id": "L025"
+  },
+  {
+    "email": "suburban@lib.com",
+    "city": "Badalona",
+    "name": "Suburban Library",
+    "id": "L026"
+  },
+  {
+    "email": "metro@lib.com",
+    "city": "Barcelona",
+    "name": "Metropolitan Library",
+    "id": "L027"
+  }
+]
+
